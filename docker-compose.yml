@@ -1,0 +1,11 @@
+version: "3"
+services:
+  api:
+    build: .
+    command: python server.py runserver -h 0.0.0.0 -p 5000
+    container_name: flask_klotski_server
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/app
+

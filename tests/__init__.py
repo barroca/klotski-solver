@@ -1,0 +1,1 @@
+from tests.test_klostski_board import KlotskiBoardPlacementTest

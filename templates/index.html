@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <style type="text/css">
+* { box-sizing: border-box }
+.box {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 480px;
+	background-color: #fff;
+}
+.vertical {
+	display: inline-block;
+	width: 120px;
+	height: 240px;
+	border: 1px solid #c4c4c4;
+	box-shadow: 0 0 9px rgba(0, 0, 0, 0.13);
+	line-height: 240px;
+	text-align: center;
+	font-size: 44px;
+}
+.horizontal {
+	display: inline-block;
+	width: 240px;
+	height: 120px;
+	border: 1px solid #c4c4c4;
+	box-shadow: 0 0 9px rgba(0, 0, 0, 0.13);
+	line-height: 120px;
+	text-align: center;
+	font-size: 44px;
+}
+.square {
+	display: inline-block;
+	width: 240px;
+	height: 240px;
+	border: 1px solid #c4c4c4;
+	box-shadow: 0 0 9px rgba(0, 0, 0, 0.13);
+	line-height: 240px;
+	text-align: center;
+	font-size: 44px;
+}
+.item{
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	border: 1px solid #c4c4c4;
+	box-shadow: 0 0 9px rgba(0, 0, 0, 0.13);
+	line-height: 120px;
+	text-align: center;
+	font-size: 44px;
+}
+</style>
+<script type="text/javascript" src="static/grabbable.js"></script>
+    </head>
+    <body>
+        <form action="/get_solution" method="post">
+            <fieldset>
+                <legend>Klotski Solver:</legend>
+                Board to solve:<br>
+                <input type="longtext" name="board" style="width:300px; height:50px; font-size:20px;"  maxlength="20" {% if board %} value={{ board }} {% endif %}><br>
+                {% if error_message %}
+                    <i>*{{ error_message }}</i><br>
+                {% endif %} <br>
+                <input type="submit" value="Submit"><br>
+                Enter a string like: <b>abbcabbcdeefd00fighj</b><br>
+                Which represents the board below<br>
+            </fieldset>
+        </form>
+
+</script>
+
+<!--TODO: update board example to allow user to define board use css -->
+<h2>Board example</h2>
+<div class="box grabbable-parent">
+	<div class="vertical">a</div>
+    <div class="square">b</div>
+	<div class="vertical">c</div>
+	<div class="vertical">d</div>
+    <div class="horizontal">e</div>
+	<div class="vertical">f</div>
+	<div class="item">i</div>
+	<div class="item">g</div>
+	<div class="item">h</div>
+	<div class="item">j</div>
+
+</div>
+
+<script type="text/javascript">
+"use strict";
+!function(){
+	document.querySelector(".grabbable-parent")
+		.grabbable();
+}()
+</script>
+    </body>
+</html>

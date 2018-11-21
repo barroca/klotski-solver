@@ -1,1 +1,1 @@
-from .board import KlotskBoard
+from .board import KlotskiBoard
